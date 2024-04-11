@@ -1,0 +1,31 @@
+#main {
+    width: 380px;
+    border: 1px solid black;
+    #header {
+    }
+
+    #categories {
+    }
+
+    #slides {
+    }
+
+    #contents {
+        #viewer {
+            .contents-box {
+                width: 380px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                .content {
+                    .content-img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    #dummy {
+        height: 200px;
+    }
+}
