@@ -3,8 +3,8 @@ import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import '../styles/common.css'; //TODO 절대 경로로 바꾸기
-import styles from '../styles/Main.module.css';
+import 'styles/common.css';
+import styles from 'styles/Main.module.css';
 
 const Main = () => {
     const [productsList, setProductsList] = useState([]);
