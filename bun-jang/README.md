@@ -28,3 +28,9 @@
     -   post 요청은 여기서 하기 어려워서 거기서 해야할 듯. 시간상 아마 get요청 하나랑 post 요청 하나를 주시지 않을까?
 
 ### 공부 기록
+
+-   container와 wrapper의 차이
+
+    -   container는 하나의 요소를 감쌀 때, wrapper는 여러개의 요소를 감쌀 때 사용한다. [참고](https://uxdev.org/entry/CSS-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%84%A4%EC%9D%B4%EB%B0%8D-%EC%8B%9C-container-vs-wrapper-%EC%B0%A8%EC%9D%B4-%EA%B5%AC%EB%B6%84%ED%95%98%EA%B8%B0)
+
+-   drag 를 구현 중인데, 더 하면 될 것 같은데 더 하는 것은 시간 낭비일 것 같아서 중단!

@@ -10,15 +10,23 @@
     #slides {
     }
 
-    #contents {
-        #viewer {
-            .contents-box {
-                width: 380px;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                .content {
-                    .content-img {
-                        width: 100%;
+    #products {
+        #slide-wrapper {
+            overflow: hidden;
+            #contents-wrapper {
+                .grid-wrapper {
+                    width: 380px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    .content {
+                        span,
+                        p,
+                        img {
+                            user-select: none;
+                        }
+                        .content-img {
+                            width: 100%;
+                        }
                     }
                 }
             }
