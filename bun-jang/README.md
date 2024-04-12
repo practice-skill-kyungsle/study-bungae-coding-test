@@ -46,5 +46,12 @@
     -   jsconfing.json 파일을 설정하면 된다
 
 -   폴더 구조
+
     -   폴더 구조는 페이지 다음 컨테이너, 컴포넌트로 구성한다. 컨테이너와 컴포넌트의 기준은 좀 애매하지만, 특정하게 공통 기능을 하는 것들을 묶어서 컨테이너라고 부른다.
     -   해당 프로젝트에서는 헤더, 카테고리, 상품 슬라이드 정도가 컨테이너가 될 듯 싶다.
+
+-   import 문 순서
+
+    -   react or next library > container > component > js(data) > style > external pkg
+
+-

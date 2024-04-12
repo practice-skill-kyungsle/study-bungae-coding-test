@@ -1,16 +1,21 @@
+// react library
 import { useEffect, useState } from 'react';
+// icon
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// style
 import 'styles/common.css';
 import styles from 'styles/Main.module.css';
 
 const Main = () => {
+    // * state
     const [productsList, setProductsList] = useState([]);
     const [productsDragStartClientX, setProductsDragStartClientX] = useState(0);
     const [transformX, setTransformX] = useState(0);
 
+    // * function
     const getMainContents = async () => {
         const response = await fetch(
             'https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year',
@@ -20,6 +25,7 @@ const Main = () => {
         return json?.data?.movies || [];
     };
 
+    // * effect
     useEffect(() => {
         getMainContents().then((res) => setProductsList(res));
     }, []);
