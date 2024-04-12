@@ -10,17 +10,21 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // style
 import 'styles/common.css';
 import styles from 'styles/Main.module.css';
+// external library
+import { useQuery } from '@tanstack/react-query';
 
 const Main = () => {
     // * state
-    const [productsList, setProductsList] = useState([]);
+
     const [productsDragStartClientX, setProductsDragStartClientX] = useState(0);
     const [transformX, setTransformX] = useState(0);
 
-    // * effect
-    useEffect(() => {
-        getProducts().then((res) => setProductsList(res));
-    }, []);
+    // * global data
+    const { data: productsList } = useQuery({
+        queryKey: 'productsList',
+        queryFn: getProducts,
+        refetchInterval: 1000 * 60,
+    });
 
     return (
         <div id={styles['main']}>
@@ -105,7 +109,7 @@ const Main = () => {
                                     prev + Math.floor((productsDragStartClientX - e.clientX) / 20),
                                     0,
                                 ),
-                                Math.ceil(productsList.length / 6) * 380,
+                                Math.ceil(productsList?.length || 0 / 6) * 380,
                             ),
                         );
                     }}
@@ -118,27 +122,29 @@ const Main = () => {
                         id={styles['contents-wrapper']}
                         className="display-flex"
                         style={{
-                            width: `${Math.ceil(productsList.length / 6) * 380}px`,
+                            width: `${Math.ceil(productsList?.length || 0 / 6) * 380}px`,
                             transform: `translateX(-${transformX}px)`,
                         }}
                     >
-                        {new Array(Math.ceil(productsList.length / 6)).fill(0).map((_, index) => (
-                            <div className={styles['grid-wrapper']} key={'grid-box' + index}>
-                                {productsList.slice(index * 6, index * 6 + 6).map((item) => (
-                                    <div className={styles.content} key={item.id}>
-                                        <div>
-                                            <img
-                                                className={styles['content-img']}
-                                                src={item.background_image_original}
-                                                alt="none"
-                                            />
+                        {new Array(Math.ceil(productsList?.length || 0 / 6))
+                            .fill(0)
+                            .map((_, index) => (
+                                <div className={styles['grid-wrapper']} key={'grid-box' + index}>
+                                    {productsList.slice(index * 6, index * 6 + 6).map((item) => (
+                                        <div className={styles.content} key={item.id}>
+                                            <div>
+                                                <img
+                                                    className={styles['content-img']}
+                                                    src={item.background_image_original}
+                                                    alt="none"
+                                                />
+                                            </div>
+                                            <p>{item.title}</p>
+                                            <p>{item.date_uploaded}</p>
                                         </div>
-                                        <p>{item.title}</p>
-                                        <p>{item.date_uploaded}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
+                                    ))}
+                                </div>
+                            ))}
                     </div>
                 </div>
             </div>
