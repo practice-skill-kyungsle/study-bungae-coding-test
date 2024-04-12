@@ -1,5 +1,7 @@
 // react library
 import { useEffect, useState } from 'react';
+// function
+import { getProducts } from 'api/productsApi';
 // icon
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -15,19 +17,9 @@ const Main = () => {
     const [productsDragStartClientX, setProductsDragStartClientX] = useState(0);
     const [transformX, setTransformX] = useState(0);
 
-    // * function
-    const getMainContents = async () => {
-        const response = await fetch(
-            'https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year',
-        );
-        const json = await response.json();
-
-        return json?.data?.movies || [];
-    };
-
     // * effect
     useEffect(() => {
-        getMainContents().then((res) => setProductsList(res));
+        getProducts().then((res) => setProductsList(res));
     }, []);
 
     return (
