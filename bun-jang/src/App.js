@@ -10,7 +10,7 @@ function App() {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <div className="App" style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="App">
                 <Main />
             </div>
         </QueryClientProvider>

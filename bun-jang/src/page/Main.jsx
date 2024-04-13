@@ -27,8 +27,8 @@ const Main = () => {
     });
 
     return (
-        <div id={styles['main']}>
-            <div id={styles['header']} className="display-flex between">
+        <>
+            <header id={styles['header']} className="display-flex between">
                 <div style={{ display: 'flex' }}>
                     <div>
                         <BoltOutlinedIcon />
@@ -63,20 +63,19 @@ const Main = () => {
                         </button>
                     </div>
                 </div>
-            </div>
-            <div id={styles['categories']} className="display-flex">
-                <div>
-                    <span>추천</span>
-                </div>
-                <div>
-                    <span>하이엔드</span>
-                </div>
-                <div>
-                    <span>패션랭킹</span>
-                </div>
-            </div>
-            <div id="dummy">dummy</div>
-            <div id={styles['products']}>
+                <nav id={styles['navigation']} className="display-flex">
+                    <div>
+                        <span>추천</span>
+                    </div>
+                    <div>
+                        <span>하이엔드</span>
+                    </div>
+                    <div>
+                        <span>패션랭킹</span>
+                    </div>
+                </nav>
+            </header>
+            <main id={styles['main']}>
                 <div className="display-flex between">
                     <div>
                         <p style={{ textAlign: 'left' }}>가품 걱정 없는</p>
@@ -147,8 +146,8 @@ const Main = () => {
                             ))}
                     </div>
                 </div>
-            </div>
-        </div>
+            </main>
+        </>
     );
 };
 
